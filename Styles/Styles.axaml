@@ -1,6 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:behaviours="clr-namespace:InputValidationBug.Behaviours">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Design.PreviewWith>
     <Border Padding="20">
       <!-- Add Controls for Previewer Here -->
@@ -11,7 +10,7 @@
   <Style Selector="Border.showOnTap">
       <Setter Property="Interaction.Behaviors">
           <BehaviorCollection>
-			  <behaviours:MyShowOnTappedBehavior TargetControl="{Binding $parent[StackPanel].Children[1]}"/>
+			  <ShowOnTappedBehavior TargetControl="{Binding $parent[StackPanel].Children[1]}"/>
           </BehaviorCollection>
       </Setter>
       <Setter Property="Background" Value="CornflowerBlue" />
