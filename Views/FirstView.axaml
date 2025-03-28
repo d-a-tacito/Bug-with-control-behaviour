@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviours="clr-namespace:InputValidationBug.Behaviours"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="InputValidationBug.Views.FirstView">
+	<StackPanel>
+
+		<StackPanel.Styles>
+            <Style Selector="Border.showOnTapLocal">
+                <Setter Property="Interaction.Behaviors">
+                    <BehaviorCollection>
+						<behaviours:MyShowOnTappedBehavior TargetControl="{Binding $parent[StackPanel].Children[3]}"/>
+                    </BehaviorCollection>
+                </Setter>
+                <Setter Property="Background" Value="NavajoWhite" />
+
+			</Style>
+		</StackPanel.Styles>
+
+        <Border Classes="showOnTap" Height="100">
+            <TextBlock Text="Tap me!"/>
+        </Border>
+        <Border x:Name="HiddenElement" Height="100" IsVisible="False" Background="LightGreen">
+            <TextBlock Text="Now I'm visible!"/>
+        </Border>
+
+        <Border Classes="showOnTapLocal" Margin="0 10 0 0" Height="100">
+            <TextBlock Text="Tap me!"/>
+        </Border>
+        <Border x:Name="HiddenElement2" Height="100" IsVisible="False" Background="LightGreen">
+            <TextBlock Text="Now I'm visible!"/>
+        </Border>
+
+    </StackPanel>
+</UserControl>
